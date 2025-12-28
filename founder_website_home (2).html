@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditi Gupta - Execution for US Founders</title>
+    <style>
+        /* ==================== RESET ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ==================== BASE STYLES ==================== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a1a1a;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 20px 24px;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        /* ==================== LAYOUT ==================== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #667eea;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.2s;
+        }
+
+        .cta-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            color: #667eea;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: color 0.2s;
+        }
+
+        .cta-secondary:hover {
+            color: #5568d3;
+        }
+
+        /* ==================== CALLOUT BOX ==================== */
+        .callout {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 32px;
+            margin: 60px 0;
+            border-radius: 4px;
+        }
+
+        .callout p {
+            font-size: 1.15em;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* ==================== PAIN POINTS ==================== */
+        .pain-points {
+            background: #f8f9fa;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .pain-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .pain-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .pain-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ==================== SERVICE CARDS ==================== */
+        .services {
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.25em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.15em;
+            margin-bottom: 48px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            padding: 40px 32px;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #667eea;
+            transform: translateY(-4px);
+        }
+
+        .service-card h3 {
+            font-size: 1.35em;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ==================== HOW I WORK ==================== */
+        .how-i-work {
+            background: #ffffff;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+
+        .timeline-item {
+            padding: 32px;
+            margin-bottom: 24px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .timeline-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .working-style {
+            margin-top: 60px;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .working-style h3 {
+            font-size: 1.5em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .working-style ul {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .working-style li {
+            padding: 16px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .working-style li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* ==================== CASE STUDIES ==================== */
+        .case-studies {
+            background: #f8f9fa;
+        }
+
+        .case-study {
+            background: #ffffff;
+            border: 2px solid #e5e5e5;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .case-study h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .metrics {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .metric-tag {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .case-section {
+            margin-top: 20px;
+        }
+
+        .case-section h4 {
+            font-size: 0.85em;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .case-section p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ==================== ABOUT ==================== */
+        .about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 48px;
+        }
+
+        .about-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .about-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-section ul {
+            list-style: none;
+        }
+
+        .about-section li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .about-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* ==================== CONTACT ==================== */
+        .contact {
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #667eea;
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #667eea;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            background: #667eea;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: #667eea;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.25em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.15em;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-white {
+            background: #ffffff;
+            color: #667eea;
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .cta-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: #1a1a1a;
+            padding: 48px 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 1.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Aditi Gupta</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-i-work">How I Work</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>I remove execution bottlenecks for founders.</h1>
+            <p>Everything routes through you. Execution slips. I own it end-to-end so you can focus on what actually matters.</p>
+            <a href="#contact" class="cta-primary">Let's Talk</a>
+            <a href="#how-i-work" class="cta-secondary">How I Work →</a>
+        </div>
+    </section>
+
+    <!-- ==================== CALLOUT ==================== -->
+    <div class="container">
+        <div class="callout">
+            <p><strong>Fractional Chief of Staff.</strong> No decks. No advice. Just execution, end-to-end.</p>
+        </div>
+    </div>
+
+    <!-- ==================== PAIN POINTS ==================== -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 class="section-title">You're stuck in the weeds</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>Everything routes through you</h3>
+                    <p>You're the bottleneck on every decision, every project, every update.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>Execution slips</h3>
+                    <p>Projects stall. Priorities shift. Nothing ships without your constant attention.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>You're doing work that doesn't need you</h3>
+                    <p>Building dashboards, writing docs, chasing updates instead of building product.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">What I Actually Do</h2>
+            <p class="section-subtitle">I own execution end-to-end. You get outcomes, not updates.</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Founder's Office Execution</h3>
+                    <p>Take ambiguous priorities and ship them end-to-end. Weekly goals, dashboards, decision memos — you get outcomes, not updates.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Growth & Customer Experience</h3>
+                    <p>Run experiments, fix conversion funnels, improve retention. I've driven +25% repeat rates and +20% retention improvements.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Ops & Cross-Functional Leadership</h3>
+                    <p>Build operating rhythms, dashboards, and SOPs. Align teams, unblock decisions, drive delivery without formal authority.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW I WORK ==================== -->
+    <section id="how-i-work" class="how-i-work">
+        <div class="container">
+            <h2 class="section-title">What the First 30 Days Look Like</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Week 1: One visible improvement shipped</h3>
+                    <p>Operating rhythm in place. You see immediate progress on something that's been stuck.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Weeks 2-3: Bottlenecks addressed</h3>
+                    <p>2-3 process bottlenecks identified and addressed. Dashboards live. Teams know what's happening without asking you.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Week 4: Systems that work without you</h3>
+                    <p>Clear documentation. Operating cadence running. You're spending time on what only you can do.</p>
+                </div>
+            </div>
+
+            <div class="working-style">
+                <h3>What Makes This Different</h3>
+                <ul>
+                    <li><strong>Async-first with 2-4 hour US overlap.</strong> Most work happens independently. We sync when it matters.</li>
+                    <li><strong>One weekly update: priorities, progress, risks, decisions needed.</strong> No status meeting theater.</li>
+                    <li><strong>High ownership, low hand-holding.</strong> I take problems off your plate. You don't manage me.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CASE STUDIES ==================== -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <h2 class="section-title">Track Record</h2>
+            
+            <div class="case-study">
+                <h3>Leap Finance | Founder's Office (Execution)</h3>
+                <div class="metrics">
+                    <span class="metric-tag">+20% lead conversions</span>
+                    <span class="metric-tag">New revenue channel</span>
+                    <span class="metric-tag">TOFU growth unlocked</span>
+                </div>
+                
+                <div class="case-section">
+                    <h4>Challenge</h4>
+                    <p>Needed to unlock growth in the IELTS-to-counseling funnel with significant drop-off points.</p>
+                </div>
+                
+                <div class="case-section">
+                    <h4>What I Owned</h4>
+                    <p>Redesigned user journey, tested multiple models for TOFU acquisition, created new revenue stream through external partnerships.</p>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h3>Urban Company | Founder's Office (Execution)</h3>
+                <div class="metrics">
+                    <span class="metric-tag">+25% repeat rate</span>
+                    <span class="metric-tag">+20% retention</span>
+                    <span class="metric-tag">+30% revenue growth</span>
+                </div>
+                
+                <div class="case-section">
+                    <h4>Challenge</h4>
+                    <p>Low repeat rate and inconsistent customer experience across high-growth marketplace.</p>
+                </div>
+                
+                <div class="case-section">
+                    <h4>What I Owned</h4>
+                    <p>Analyzed behavior data, identified friction points, implemented improvements, coordinated cross-functional rollout across major cities. Launched 5 new SKUs after market research.</p>
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h3>Fischer Sports | Founder's Office (Execution)</h3>
+                <div class="metrics">
+                    <span class="metric-tag">80% satisfaction rate</span>
+                    <span class="metric-tag">Actionable insights delivered</span>
+                </div>
+                
+                <div class="case-section">
+                    <h4>Challenge</h4>
+                    <p>CX gaps and unclear customer journey affecting satisfaction.</p>
+                </div>
+                
+                <div class="case-section">
+                    <h4>What I Owned</h4>
+                    <p>Market research, journey mapping, developed and tested solutions with target customers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            
+            <div class="about-content">
+                <div class="about-section">
+                    <h3>Background</h3>
+                    <p>MS Management from Boston University (STEM). 3+ years in high-growth Indian tech — Urban Company (marketplace) and Leap Finance (ed-tech). I've built ops systems from scratch, managed customer experience at scale, and owned execution in founder's office roles.</p>
+                    <p>SAFe 6 Agile Practitioner. Track record of 20-30% improvements in key metrics across retention, conversion, and revenue.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3>How I Think</h3>
+                    <ul>
+                        <li><strong>Execution over planning.</strong> I'd rather ship an 80% solution this week than debate a perfect one for months.</li>
+                        <li><strong>Data informs, doesn't decide.</strong> Numbers tell you what's broken. Judgment tells you what to fix first.</li>
+                        <li><strong>Documentation is infrastructure.</strong> If it's not written down, it doesn't scale and it dies when you leave.</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3>Tools & Approach</h3>
+                    <p>Excel, SQL, Tableau for analysis. Notion, JIRA, Figma for execution. But the tool doesn't matter — what matters is using the simplest thing that works and documenting it so anyone can pick it up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Stop Being the Execution Bottleneck</h2>
+                <p class="section-subtitle">Let's talk about your biggest bottleneck. I'll tell you honestly if I can help or not.<br><br>First conversation is free — I respond within 24 hours.</p>
+                
+                <div class="contact-links">
+                    <a href="mailto:aditi.gpt0012@gmail.com" class="contact-link">
+                        ✉️ Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/aditigupta1208/" target="_blank" class="contact-link">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#how-i-work">How I Work</a>
+                <a href="#case-studies">Case Studies</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>© 2024 Aditi Gupta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
